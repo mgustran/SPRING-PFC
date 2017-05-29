@@ -1,8 +1,8 @@
-package com.concretepage.service;
+package com.skeight.service;
 
 import java.util.List;
 
-import com.concretepage.entity.Article;
+import com.skeight.entity.Article;
 
 public interface IArticleService {
      List<Article> getAllArticles();

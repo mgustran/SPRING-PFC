@@ -1,4 +1,4 @@
-package com.concretepage.dao;
+package com.skeight.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.concretepage.entity.Article;
+import com.skeight.entity.Article;
 @Transactional
 @Repository
 public class ArticleDAO implements IArticleDAO {
@@ -44,9 +44,9 @@ public class ArticleDAO implements IArticleDAO {
 		entityManager.remove(getArticleById(articleId));
 	}
 	@Override
-	public boolean articleExists(String title, String category) {
-		String hql = "FROM Article as atcl WHERE atcl.title = ? and atcl.category = ?";
-		int count = entityManager.createQuery(hql).setParameter(1, title)
+	public boolean articleExists(String model, String category) {
+		String hql = "FROM Article as atcl WHERE atcl.model = ? and atcl.category = ?";
+		int count = entityManager.createQuery(hql).setParameter(1, model)
 		              .setParameter(2, category).getResultList().size();
 		return count > 0 ? true : false;
 	}

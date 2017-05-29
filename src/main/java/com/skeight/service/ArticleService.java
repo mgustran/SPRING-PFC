@@ -1,12 +1,12 @@
-package com.concretepage.service;
+package com.skeight.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.concretepage.dao.IArticleDAO;
-import com.concretepage.entity.Article;
+import com.skeight.dao.IArticleDAO;
+import com.skeight.entity.Article;
 @Service
 public class ArticleService implements IArticleService {
 	@Autowired
