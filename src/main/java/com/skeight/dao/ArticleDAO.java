@@ -22,7 +22,13 @@ public class ArticleDAO implements IArticleDAO {
 	public List<Article> getAllArticles() {
 		String hql = "FROM Article as atcl ORDER BY atcl.articleId";
 		return (List<Article>) entityManager.createQuery(hql).getResultList();
-	}	
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Article> getAllArticlesByCategory(String category) {
+		String hql = "FROM Article as atcl WHERE atcl.category = '" + category + "'  ORDER BY atcl.articleId";
+		return (List<Article>) entityManager.createQuery(hql).getResultList();
+	}
 	@Override
 	public void addArticle(Article article) {
 		entityManager.persist(article);

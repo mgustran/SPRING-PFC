@@ -3,6 +3,7 @@ import java.util.List;
 import com.skeight.entity.Article;
 public interface IArticleDAO {
     List<Article> getAllArticles();
+    List<Article> getAllArticlesByCategory(String category);
     Article getArticleById(int articleId);
     void addArticle(Article article);
     void updateArticle(Article article);

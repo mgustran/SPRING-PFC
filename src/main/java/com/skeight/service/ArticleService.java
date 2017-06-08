@@ -21,6 +21,10 @@ public class ArticleService implements IArticleService {
 		return articleDAO.getAllArticles();
 	}
 	@Override
+	public List<Article> getAllArticlesByCategory(String category){
+		return articleDAO.getAllArticlesByCategory(category);
+	}
+	@Override
 	public synchronized boolean addArticle(Article article){
        if (articleDAO.articleExists(article.getModel(), article.getCategory())) {
     	   return false;
