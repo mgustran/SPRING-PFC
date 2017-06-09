@@ -32,7 +32,7 @@ public class CartArticle implements Serializable {
     @Column(name="img")
     private String img;
     @Column(name="quantity")
-    private String quantity;
+    private int quantity;
     public int getArticleId() {
         return articleId;
     }
@@ -94,11 +94,11 @@ public class CartArticle implements Serializable {
         this.img = img;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 }
