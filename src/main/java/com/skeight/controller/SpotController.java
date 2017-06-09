@@ -12,7 +12,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
-
+/**
+ * Created by mgustran on 08/06/2017.
+ */
 @Controller
 @RequestMapping("user")
 public class SpotController {

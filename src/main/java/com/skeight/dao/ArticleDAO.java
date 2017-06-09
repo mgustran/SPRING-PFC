@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skeight.entity.Article;
+/**
+ * Created by mgustran on 08/06/2017.
+ */
 @Transactional
 @Repository
 public class ArticleDAO implements IArticleDAO {

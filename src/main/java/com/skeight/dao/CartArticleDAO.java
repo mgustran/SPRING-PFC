@@ -48,6 +48,7 @@ public class CartArticleDAO implements ICartArticleDAO {
         artcl.setDescription(article.getDescription());
         artcl.setTalla(article.getTalla());
         artcl.setImg(article.getImg());
+        artcl.setQuantity(article.getQuantity());
         entityManager.flush();
     }
     @Override

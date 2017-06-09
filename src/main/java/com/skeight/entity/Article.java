@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+/**
+ * Created by mgustran on 08/06/2017.
+ */
 @Entity
 @Table(name="articles")
 public class Article implements Serializable { 

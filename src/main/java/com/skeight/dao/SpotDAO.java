@@ -11,7 +11,6 @@ import java.util.List;
 /**
  * Created by mgustran on 29/05/2017.
  */
-
 @Transactional
 @Repository
 public class SpotDAO implements ISpotDAO {

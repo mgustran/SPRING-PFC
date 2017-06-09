@@ -13,6 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * Created by mgustran on 08/06/2017.
+ */
+
 @Component
 public class SimpleCORSFilter implements Filter {
 

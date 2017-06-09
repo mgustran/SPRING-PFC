@@ -11,7 +11,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.skeight.entity.Article;
 import com.skeight.service.IArticleService;
-
+/**
+ * Created by mgustran on 08/06/2017.
+ */
 @Controller
 @RequestMapping("data")
 @CrossOrigin(origins = "http://localhost:63343")
