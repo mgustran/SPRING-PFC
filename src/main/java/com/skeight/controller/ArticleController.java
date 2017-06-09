@@ -16,7 +16,7 @@ import com.skeight.service.IArticleService;
  */
 @Controller
 @RequestMapping("data")
-@CrossOrigin(origins = "http://localhost:63343")
+@CrossOrigin(origins = "http://localhost:8082")
 public class ArticleController {
 	@Autowired
 	private IArticleService articleService;
