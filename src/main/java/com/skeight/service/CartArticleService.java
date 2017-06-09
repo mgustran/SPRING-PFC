@@ -1,6 +1,8 @@
 package com.skeight.service;
 
+import com.skeight.dao.IArticleDAO;
 import com.skeight.dao.ICartArticleDAO;
+import com.skeight.entity.CartArticle;
 import com.skeight.entity.CartArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,34 +14,37 @@ import java.util.List;
  */
 @Service
 public class CartArticleService implements ICartArticleService {
-    
-    @Autowired
-    private ICartArticleDAO cartDAO;
 
+    @Autowired
+    private ICartArticleDAO articleDAO;
     @Override
-    public CartArticle getCartArticleById(int id) {
-        CartArticle obj = cartDAO.getCartArticleById(id);
+    public CartArticle getArticleById(int articleId) {
+        CartArticle obj = articleDAO.getArticleById(articleId);
         return obj;
     }
-
     @Override
-    public List<CartArticle> getAllCartArticles() {
-        return cartDAO.getAllCartArticles();
+    public List<CartArticle> getAllArticles(){
+        return articleDAO.getAllArticles();
     }
-
     @Override
-    public synchronized boolean addCartArticle(CartArticle cartArticle) {
-        cartDAO.addCartArticle(cartArticle);
-        return true;
+    public List<CartArticle> getAllArticlesByCategory(String category){
+        return articleDAO.getAllArticlesByCategory(category);
     }
-
     @Override
-    public void updateCartArticle(CartArticle cartArticle) {
-        cartDAO.updateCartArticle(cartArticle);
+    public synchronized boolean addArticle(CartArticle article){
+        if (articleDAO.articleExists(article.getModel(), article.getCategory())) {
+            return false;
+        } else {
+            articleDAO.addArticle(article);
+            return true;
+        }
     }
-
     @Override
-    public void deleteCartArticle(int id) {
-        cartDAO.deleteCartArticle(id);
+    public void updateArticle(CartArticle article) {
+        articleDAO.updateArticle(article);
+    }
+    @Override
+    public void deleteArticle(int articleId) {
+        articleDAO.deleteArticle(articleId);
     }
 }

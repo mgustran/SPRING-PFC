@@ -13,7 +13,7 @@ import com.skeight.entity.Article;
 import com.skeight.service.IArticleService;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("data")
 @CrossOrigin(origins = "http://localhost:63343")
 public class ArticleController {
 	@Autowired

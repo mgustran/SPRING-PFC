@@ -19,31 +19,46 @@ public class CartArticleDAO implements ICartArticleDAO {
     private EntityManager entityManager;
 
     @Override
-    public CartArticle getCartArticleById(int id) {
-        return entityManager.find(CartArticle.class, id);
+    public CartArticle getArticleById(int articleId) {
+        return entityManager.find(CartArticle.class, articleId);
     }
-
     @SuppressWarnings("unchecked")
     @Override
-    public List<CartArticle> getAllCartArticles() {
-        String hql = "FROM CartArticle as cart ORDER BY cart.id";
+    public List<CartArticle> getAllArticles() {
+        String hql = "FROM CartArticle as atcl ORDER BY atcl.articleId";
+        return (List<CartArticle>) entityManager.createQuery(hql).getResultList();
+    }
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<CartArticle> getAllArticlesByCategory(String category) {
+        String hql = "FROM CartArticle as atcl WHERE atcl.category = '" + category + "'  ORDER BY atcl.articleId";
         return (List<CartArticle>) entityManager.createQuery(hql).getResultList();
     }
     @Override
-    public void addCartArticle(CartArticle cartArticle) {
-        entityManager.persist(cartArticle);
+    public void addArticle(CartArticle article) {
+        entityManager.persist(article);
     }
-
     @Override
-    public void updateCartArticle(CartArticle cartArticle) {
-        CartArticle cartA = getCartArticleById(cartArticle.getId());
-        cartA.setArticleId(cartArticle.getArticleId());
+    public void updateArticle(CartArticle article) {
+        CartArticle artcl = getArticleById(article.getArticleId());
+        artcl.setModel(article.getModel());
+        artcl.setMarca(article.getMarca());
+        artcl.setCategory(article.getCategory());
+        artcl.setPrice(article.getPrice());
+        artcl.setDescription(article.getDescription());
+        artcl.setTalla(article.getTalla());
+        artcl.setImg(article.getImg());
         entityManager.flush();
     }
-
     @Override
-    public void deleteCartArticle(int id) {
-        entityManager.remove(getCartArticleById(id));
+    public void deleteArticle(int articleId) {
+        entityManager.remove(getArticleById(articleId));
     }
-
+    @Override
+    public boolean articleExists(String model, String category) {
+        String hql = "FROM CartArticle as atcl WHERE atcl.model = ? and atcl.category = ?";
+        int count = entityManager.createQuery(hql).setParameter(1, model)
+                .setParameter(2, category).getResultList().size();
+        return count > 0 ? true : false;
+    }
 }

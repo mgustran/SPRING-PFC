@@ -9,9 +9,12 @@ import java.util.List;
  * Created by mgustran on 08/06/2017.
  */
 public interface ICartArticleDAO {
-    List<CartArticle> getAllCartArticles();
-    CartArticle getCartArticleById(int id);
-    void addCartArticle(CartArticle cartArticle);
-    void updateCartArticle(CartArticle cartArticle);
-    void deleteCartArticle(int id);
+    List<CartArticle> getAllArticles();
+    List<CartArticle> getAllArticlesByCategory(String category);
+    CartArticle getArticleById(int articleId);
+    void addArticle(CartArticle article);
+    void updateArticle(CartArticle article);
+    void deleteArticle(int articleId);
+    boolean articleExists(String model, String category);
+
 }

@@ -1,9 +1,7 @@
 package com.skeight.controller;
 
 import com.skeight.entity.CartArticle;
-import com.skeight.entity.Spot;
 import com.skeight.service.ICartArticleService;
-import com.skeight.service.ISpotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,41 +16,53 @@ import java.util.List;
  * Created by mgustran on 08/06/2017.
  */
 @Controller
-@RequestMapping("user")
+@RequestMapping("cart")
 @CrossOrigin(origins = "http://localhost:63343")
 public class CartController {
 
     @Autowired
-    private ICartArticleService cartArticleService;
-    @GetMapping("cartArticle/{id}")
-    public ResponseEntity<CartArticle> getCartArticleById(@PathVariable("id") Integer id) {
-        CartArticle cartArticle = cartArticleService.getCartArticleById(id);
-        return new ResponseEntity<CartArticle>(cartArticle, HttpStatus.OK);
+    private ICartArticleService articleService;
+
+    @GetMapping("article/{id}")
+    public ResponseEntity<CartArticle> getArticleById(@PathVariable("id") Integer id) {
+        CartArticle article = articleService.getArticleById(id);
+        return new ResponseEntity<CartArticle>(article, HttpStatus.OK);
     }
 
-    @GetMapping("cart")
-    public ResponseEntity<List<CartArticle>> getAllCArtArticles() {
-        List<CartArticle> list = cartArticleService.getAllCartArticles();
+    @GetMapping("articles")
+    public ResponseEntity<List<CartArticle>> getAllArticles() {
+        List<CartArticle> list = articleService.getAllArticles();
         return new ResponseEntity<List<CartArticle>>(list, HttpStatus.OK);
     }
-    @PostMapping("cartArticle")
-    public ResponseEntity<Void> addCartArticle(@RequestBody CartArticle cartArticle, UriComponentsBuilder builder) {
-        boolean flag = cartArticleService.addCartArticle(cartArticle);
+
+    @GetMapping("articles/{category}")
+    public ResponseEntity<List<CartArticle>> getAllArticlesByCategory(@PathVariable("category") String category) {
+        List<CartArticle> list = articleService.getAllArticlesByCategory(category);
+        return new ResponseEntity<List<CartArticle>>(list, HttpStatus.OK);
+    }
+
+    @PostMapping("article")
+    public ResponseEntity<Void> addArticle(@RequestBody CartArticle article, UriComponentsBuilder builder) {
+        boolean flag = articleService.addArticle(article);
         if (flag == false) {
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(builder.path("/cart/{id}").buildAndExpand(cartArticle.getArticleId()).toUri());
+        headers.add("Access-Control-Allow-Methods", "GET, OPTIONS, POST, HEAD");
+        headers.add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        headers.setLocation(builder.path("/article/{id}").buildAndExpand(article.getArticleId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
-    @PutMapping("cartArticle")
-    public ResponseEntity<CartArticle> updateCartArticle(@RequestBody CartArticle cartArticle) {
-        cartArticleService.updateCartArticle(cartArticle);
-        return new ResponseEntity<CartArticle>(cartArticle, HttpStatus.OK);
+
+    @PutMapping("article")
+    public ResponseEntity<CartArticle> updateArticle(@RequestBody CartArticle article) {
+        articleService.updateArticle(article);
+        return new ResponseEntity<CartArticle>(article, HttpStatus.OK);
     }
-    @DeleteMapping("cartArticle/{id}")
-    public ResponseEntity<Void> deleteCartArticle(@PathVariable("id") Integer id) {
-        cartArticleService.deleteCartArticle(id);
+
+    @DeleteMapping("article/{id}")
+    public ResponseEntity<Void> deleteArticle(@PathVariable("id") Integer id) {
+        articleService.deleteArticle(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 }
