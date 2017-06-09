@@ -26,7 +26,7 @@ public class Article implements Serializable {
 	@Column(name="category")	
 	private String category;
 	@Column(name="price")
-	private String price;
+	private double price;
 	@Column(name="description")
 	private String description;
 	@Column(name="discount")
@@ -53,10 +53,10 @@ public class Article implements Serializable {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public String getDescription() {
