@@ -22,9 +22,9 @@ public class Spot implements Serializable {
     @Column(name = "location")
     private String location;
     @Column(name = "gmaps_location_1")
-    private String gmapsLocation1;
+    private double gmapsLocation1;
     @Column(name = "gmaps_location_2")
-    private String gmapsLocation2;
+    private double gmapsLocation2;
     @Column(name = "img")
     private String img;
 
@@ -60,19 +60,19 @@ public class Spot implements Serializable {
         this.location = location;
     }
 
-    public String getGmapsLocation1() {
+    public double getGmapsLocation1() {
         return gmapsLocation1;
     }
 
-    public void setGmapsLocation1(String gmapsLocation1) {
+    public void setGmapsLocation1(double gmapsLocation1) {
         this.gmapsLocation1 = gmapsLocation1;
     }
 
-    public String getGmapsLocation2() {
+    public double getGmapsLocation2() {
         return gmapsLocation2;
     }
 
-    public void setGmapsLocation2(String gmapsLocation2) {
+    public void setGmapsLocation2(double gmapsLocation2) {
         this.gmapsLocation2 = gmapsLocation2;
     }
 

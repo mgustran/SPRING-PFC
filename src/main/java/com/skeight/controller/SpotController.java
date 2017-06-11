@@ -16,7 +16,7 @@ import java.util.List;
  * Created by mgustran on 08/06/2017.
  */
 @Controller
-@RequestMapping("user")
+@RequestMapping("spots")
 public class SpotController {
 
     @Autowired
@@ -39,6 +39,8 @@ public class SpotController {
         }
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(builder.path("/spot/{id}").buildAndExpand(spot.getSpotId()).toUri());
+        headers.add("Access-Control-Allow-Methods", "GET, OPTIONS, POST, HEAD");
+        headers.add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
     @PutMapping("spot")
