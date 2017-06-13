@@ -2,6 +2,8 @@ package com.skeight.client;
 
 import java.net.URI;
 
+import com.skeight.entity.Message;
+import com.skeight.entity.Order;
 import com.skeight.entity.Spot;
 import org.junit.Test;
 import org.springframework.http.HttpEntity;
@@ -70,6 +72,10 @@ public class RestClientUtil {
 	    spot.setSpotId(4);
 	    spot.setName("Chiringuito Playero");
 	    spot.setLocation("A Saber");
+	    spot.setAddress("A Saber");
+	    spot.setGmapsLocation1(9987);
+	    spot.setGmapsLocation2(9876);
+	    spot.setImg("iuyiuyiyiuy");
         HttpEntity<Spot> requestEntity = new HttpEntity<Spot>(spot, headers);
         restTemplate.put(url, requestEntity);
     }
@@ -78,16 +84,16 @@ public class RestClientUtil {
     	HttpHeaders headers = new HttpHeaders();
     	headers.setContentType(MediaType.APPLICATION_JSON);
         RestTemplate restTemplate = new RestTemplate();
-	    String url = "http://localhost:8080/user/article/{id}";
-        HttpEntity<Article> requestEntity = new HttpEntity<Article>(headers);
-        restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, 4);        
+	    String url = "http://localhost:8080/data/article/{id}";
+        HttpEntity<Message> requestEntity = new HttpEntity<Message>(headers);
+        restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, 1);
     }
     public static void main(String args[]) {
     	RestClientUtil util = new RestClientUtil();
         util.getArticleByIdDemo();
     	util.getAllArticlesDemo();
     	util.addSpotDemo();
-    	//util.updateArticleDemo();
+    	util.updateSpotDemo();
     	//util.deleteArticleDemo();
     }    
 }
