@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html ng-app="skeightApp" class="ng-scope" ng-controller="productsController" ng-cloak>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Skeight - Rodamientos</title>
+
+    <meta name="description" content="Skeight - The Definitive WebShop And Spot Finder">
+    <meta name="author" content="mgustran@github.com">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/skeight_logo2.png" sizes="32x32" type="image/png">
+    <script src="../js/angular.min.js"></script>
+
+</head>
+
+<body id="home">
+<div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand active" href="../home.html">
+                <img id="navlogo" src="../img/Skeight.jpg" alt="microstore" width="122" height="45">
+            </a>
+
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul id="navigation" class="nav navbar-nav navbar-right text-center">
+                <li><a href="tablas.html" class="">Tablas</a></li>
+                <li><a href="ejes.html">Ejes</a></li>
+                <li><a href="ruedas.html">Ruedas</a></li>
+                <li><a href="rodamientos.html" class="active-page-navbar">Rodamientos</a></li>
+                <li><a href="accesorios.html">Accesorios</a></li>
+                <li><a href="tcompletas.html">Tablas Completas</a></li>
+                <li>
+                    <a type="button" class="cart-btn btn btn-default icon-cart dropdown-toggle" href="shopcart.html" style="font-size: 20px">{{"  "}} {{cartNum}}</a>
+                </li>
+                <li>
+                    <div id="wrap">
+                        <form action="search.html" autocomplete="off">
+                            <input type="submit">
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div id="hero" class="" data-height="600" style="height: 581px;">
+    <img class="" src="../img/rodamientosWall.jpg" alt="wall">
+</div>
+
+
+
+<section id="rodamientos" class="padding-top-bottom-first ng-scope gray-bg" ng-controller="productsController" ng-cloak>
+    <div class="container">
+        <header class="section-header text-center">
+            <h2>Rodamientos</h2>
+        </header>
+    </div>
+    <div class="container">
+        <div id="rodamientos-container" class="row">
+            <article class="product col-xs-12 col-sm-6 col-md-3 " ng-repeat="productItem in productsObj | filter:q as results">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <a class="product-icon icon-eye" href="productdetail.html?{{productItem.articleId}}" ></a>
+                    <img class="img-responsive project-image" src="{{productItem.img}}" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <p class="project-price">{{productItem.price | number : 2}} € </p>
+                    <div>
+                        <h4 class="project-title ng-binding">{{productItem.model}}</h4>
+                        <h4 class="project-title ng-binding"><a href="search.html?search={{productItem.marca}}#">   by <strong>  {{productItem.marca}}</strong></a></h4>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<footer id="main-footer" class="dark-bg light-typo">
+    <div class="container">
+        <p class="pull-left copyright">© Skeight 2017. <br> Designed by <a href="https://github.com/mgustran" target="_blank">Miquel Gustran</a>.<br>
+        </p>
+
+        <div class="pull-right paymentMethodImg copyright">
+            <a class="btn btn-store outline" href="https://github.com/mgustran/front-pfc">Terminos y condiciones</a>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="../js/jquery-latest.pack.js"></script>
+
+<script src="../js/shopPages/rodamientos.js">
+
+</script>
+
+
+
+
+</body></html>

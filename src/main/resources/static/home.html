@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html ng-app="skeightApp" class="ng-scope" ng-controller="productsController" ng-cloak>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Skeight - More Than Skates</title>
+
+    <meta name="description" content="Skeight - The Definitive WebShop And Spot Finder">
+    <meta name="author" content="mgustran@github.com">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/skeight_logo2.png" sizes="32x32" type="image/png">
+    <script src="js/angular.min.js"></script>
+</head>
+
+<body id="home">
+<div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand active" href="home.html">
+                <img id="navlogo" src="img/Skeight.jpg" alt="microstore" width="122" height="45">
+            </a>
+
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul id="navigation" class="nav navbar-nav navbar-right text-center">
+                <li><a href="shopPages/shop.html" class="">Tienda</a></li>
+                <li><a href="spotPages/spots.html">Mapa</a></li>
+                <li><a href="shopPages/contact.html">Contacto</a></li>
+
+                <li class="">
+                    <a type="button" class="cart-btn btn btn-default icon-cart dropdown-toggle" href="shopPages/shopcart.html" style="font-size: 20px">{{"  "}} {{cartNum}}</a>
+                </li>
+                <li>
+                    <div id="wrap">
+                        <form action="shopPages/search.html" autocomplete="off">
+                            <input id="search" name="search" type="text" placeholder="Que Estas Buscando ?" required>
+                            <input id="search_submit" class="icon-cart2" value="Rechercher" type="submit">
+                        </form>
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div id="hero" class="" data-height="600" style="height: 581px;">
+    <img class="" src="img/homeWall.jpg" alt="wall">
+
+</div>
+
+
+
+<section id="products" class="padding-top-bottom ng-scope">
+    <div class="container">
+        <header class="row image-logo text-center">
+            <img src="img/skeight_logo4.png" alt="logo">
+            <img src="img/skeight_logo3.png" alt="logo">
+        </header>
+        <div class="section-header text-centerf">
+            <h2>Categorias</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div id="projects-container" class="row">
+            <article class="product col-xs-12 col-sm-6 col-md-4 ">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <a class="product-icon icon-eye" href="shopPages/tablas.html"></a>
+                    <img class="img-responsive project-image" src="img/tablas.jpg" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <div>
+                        <h4 class="project-title ng-binding">Tablas</h4>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product col-xs-12 col-sm-6 col-md-4 ">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <a class="product-icon icon-eye" href="shopPages/ejes.html"></a>
+                    <img class="img-responsive project-image" src="img/ejes.jpg" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <div>
+                        <h4 class="project-title">Ejes</h4>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product col-xs-12 col-sm-6 col-md-4 ">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <a class="product-icon icon-eye" href="shopPages/ruedas.html"></a>
+                    <img class="img-responsive" src="img/ruedas.jpeg" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <div>
+                        <h4 class="project-title">Ruedas</h4>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product col-xs-12 col-sm-6 col-md-4 ">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <a class="product-icon icon-eye" href="shopPages/rodamientos.html"></a>
+                    <img class="img-responsive" src="img/rodamientos.jpg" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <div>
+                        <h4 class="project-title">Rodamientos</h4>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product col-xs-12 col-sm-6 col-md-4 ">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <a class="product-icon icon-eye" href="shopPages/accesorios.html"></a>
+                    <img class="img-responsive" src="img/accesorios.png" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <div>
+                        <h4 class="project-title">Accesorios</h4>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product col-xs-12 col-sm-6 col-md-4 ">
+                <div class="img-box">
+                    <div class="hover-mask2"></div>
+                    <a class="product-icon icon-eye" href="shopPages/tcompletas.html"></a>
+                    <img class="img-responsive" src="img/tablasCompletas.jpg" alt="">
+                </div>
+                <div class="product-info col-md-12">
+                    <div>
+                        <h4 class="project-title">Tablas Completas</h4>
+                    </div>
+                </div>
+            </article>
+
+            <div class="container">
+                <div class="col-md-12 text-center">
+                    <a class="btn btn-store cta-button smooth-scroll" href="shopPages/shop.html">Ir a la Tienda</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="gray-bg padding-top-bottom ">
+    <div class="container">
+        <header class="section-header text-center">
+            <h2>Buscador de Spots</h2>
+        </header>
+    </div>
+    <div class="container">
+            <div class="col-md-8 anima fade-right">
+                <img class="home-map" src="img/maps.jpg" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12 text-center">
+            <a class="btn btn-store cta-button smooth-scroll" href="spotPages/spots.html">Ir al Mapa</a>
+        </div>
+    </div>
+</section>
+
+<section id="cta" class="padding-top-bottom-medium color-bg light-typo">
+    <header class="section-header-cta text-center">
+        <h2>Nuestras Ventajas</h2>
+    </header>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 col-sm-4 news anima fade-up">
+                <i class="icon-trophy iconBig"></i>
+                <h3>Calidad</h3>
+            </div>
+            <div class="col-md-4 col-sm-4 news anima fade-up d1">
+                <i class="icon-truck iconBig"></i>
+                <h3>Transporte</h3>
+            </div>
+            <div class="col-md-4 col-sm-4 anima fade-up d2">
+                <i class="icon-lock iconBig"></i>
+                <h3>Pago Seguro</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="main-footer" class="dark-bg light-typo">
+    <div class="container">
+        <p class="pull-left copyright">© Skeight 2017. <br> Designed by <a href="https://github.com/mgustran" target="_blank">Miquel Gustran</a>.<br>
+        </p>
+
+        <div class="pull-right paymentMethodImg copyright">
+            <a class="btn btn-store outline" href="https://github.com/mgustran/front-pfc">Terminos y condiciones</a>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+
+<script>
+    var app = angular.module('skeightApp', []);
+    app.controller('productsController', function($scope, $http) {
+//        var productsObj;
+        $http.get("http://localhost:8080/data/articles/accesorios")
+            .then(function(response) {
+                $scope.productsObj = angular.fromJson(response.data);
+                $scope.q = "";
+            });
+
+        $http.get("http://localhost:8080/cart/articles")
+            .then(function(response) {
+                $scope.product = response.data;
+                $scope.cartProducts = angular.fromJson(response.data);
+                $scope.cartNum = $scope.cartProducts.length;
+            });
+    });
+
+    $(function(){
+        $('html, body').animate({
+            scrollTop: $('#products').offset().top - 200
+        }, 1000);
+        return false;
+    });
+
+</script>
+
+</body></html>
